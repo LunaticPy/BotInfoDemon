@@ -7,3 +7,5 @@ You could use base Gnews parser or add yours.
 
 
 Make your Eng_conf struct or use DeafultEng in engines/engdata.go
+
+Bot could send message to users, which write /start command
