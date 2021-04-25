@@ -56,7 +56,7 @@ func Get_Gnews(conf botdata.Sconf) (result []botdata.Bot_data) {
 		timer, _ := time.Parse(time.RFC1123, tt)
 		botd.Time = timer.Local().String()
 
-		if conf.Clock.Add(-time.Hour * 10).Before(timer) {
+		if conf.Clock.Add(-time.Minute * 30).Before(timer) {
 			// fmt.Println(botd)
 
 			result = append(result, botd)

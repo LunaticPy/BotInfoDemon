@@ -23,7 +23,13 @@ func GetUsers() (usersID []int) {
 
 	for _, update := range getupdates.Result {
 		if strings.ToLower(update.Message.Text) == "/test" && time.Unix(int64(update.Message.Date), 0).Day() == time.Now().Day() {
-			usersID = append(usersID, update.Message.Chat.ID)
+			var flag bool = true
+			for _, val := range usersID {
+				flag = (val != update.Message.Chat.ID)
+			}
+			if flag {
+				usersID = append(usersID, update.Message.Chat.ID)
+			}
 
 		}
 
