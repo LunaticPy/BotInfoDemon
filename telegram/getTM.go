@@ -4,13 +4,15 @@ import (
 	"BotInfoDemon/botdata"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"time"
 )
 
+var TelegramToken string = ""
+
 const (
 	Newline           = "%0A"
-	telegramToken     = ""
 	telegramBaseUrl   = "https://api.telegram.org/bot"
 	methodSendMessage = "sendMessage"
 	methodGetUpdetes  = "getUpdates"
@@ -48,7 +50,7 @@ type GetUpdatesMessageT struct {
 }
 
 func getUrlByMethod(methodName string) string {
-	return telegramBaseUrl + telegramToken + "/" + methodName
+	return telegramBaseUrl + TelegramToken + "/" + methodName
 }
 
 func getSingleTextBlock(mes botdata.Bot_data) string {
@@ -86,6 +88,15 @@ func getPeriod() string {
 	st_time := end_time.Add(-time.Minute * 30)
 
 	return " с " + st_time.Format(time.Stamp)[7:12] + " по " + end_time.Format(time.Stamp)[7:12] + Newline
+}
+
+func GetToken(filename string) string {
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return string(content)
 }
 
 // func getMessageJson(text string, chatID int) []byte {
