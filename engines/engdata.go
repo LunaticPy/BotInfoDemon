@@ -18,7 +18,7 @@ var TestConf = []botdata.Sconf{
 		Key_words: []string{"Moskva", "COVID-19"},
 		Clock:     time.Now()},
 	botdata.Sconf{Topic: "Covid-19",
-		Key_words: []string{"Moskva", "bolnitsa", "zdravoohranenie"},
+		Key_words: []string{"Moskva", "bolnitsa", "rospotrebnadzor"},
 		Clock:     time.Now()},
 }
 

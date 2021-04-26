@@ -22,7 +22,7 @@ func GetUsers() (usersID []int) {
 	}
 
 	for _, update := range getupdates.Result {
-		if strings.ToLower(update.Message.Text) == "/test" && time.Unix(int64(update.Message.Date), 0).Day() == time.Now().Day() {
+		if strings.ToLower(update.Message.Text) == "/start" && time.Unix(int64(update.Message.Date), 0).Day() == time.Now().Day() {
 			var flag bool = true
 			for _, val := range usersID {
 				flag = (val != update.Message.Chat.ID)
