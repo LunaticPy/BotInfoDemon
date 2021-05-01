@@ -26,6 +26,9 @@ func GetUsers() (usersID []int) {
 			var flag bool = true
 			for _, val := range usersID {
 				flag = (val != update.Message.Chat.ID)
+				if !flag {
+					break
+				}
 			}
 			if flag {
 				usersID = append(usersID, update.Message.Chat.ID)

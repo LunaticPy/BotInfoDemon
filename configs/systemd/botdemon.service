@@ -1,0 +1,11 @@
+[Unit]
+Description=bot alpha
+Wants=botdemon.timer
+
+[Service]
+Type=simple
+WorkingDirectory=./
+ExecStart=./
+
+[Inastall]
+WantedBy=multi-user.target
